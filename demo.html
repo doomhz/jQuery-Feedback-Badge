@@ -46,6 +46,20 @@
 
 		<h2>Implementation</h2>
 
+		<h3>Very simple example</h3>
+
+		<pre>
+&lt;script type=&quot;text/javascript&quot;&gt;
+	$(document).ready(function () {
+		$('#feedback-badge').feedbackBadge({
+			css3Safe: $.browser.safari ? true : false,
+			onClick: function () {alert('Do magic here!');return false;}
+		});
+	});
+&lt;/script&gt;
+		</pre>
+
+
 		<h3>No animation example</h3>
 
 		<pre>

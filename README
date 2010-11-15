@@ -26,7 +26,20 @@ onClick:
 
 3. Implementation
 
-a.) No animation example
+a.) Very simple example
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('#feedback-badge').feedbackBadge({
+			css3Safe: $.browser.safari ? true : false,
+			onClick: function () {alert('Do magic here!');return false;}
+		});
+	});
+</script>
+
+
+
+b.) No animation example
 
 <script type="text/javascript">
 	$(document).ready(function () {
@@ -60,7 +73,7 @@ a.) No animation example
 
 
 
-b.) Animation example
+c.) Animation example
 
 <script type="text/javascript">
 	$(document).ready(function () {
