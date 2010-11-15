@@ -1,0 +1,94 @@
+jQuery Feedback Badge (Button) Demo
+
+A simple fidback button that stays in place while clients scroll your site.
+
+1. How To
+
+   1. Include the feedbackBadge.css style
+   2. Include the feedbackBadge.min.js file
+   3. Include the element in your page footer (before you body closing tag) that you want to transform in to a badge. I recomend it to be a HTML link to have the link pointing to the form even if the client has the Javascript disabled. (ex. <a href="feedback_form.html" title="Give us feedback" id="feedback-badge"><span>Feedback</span></a>)
+   4. Activate the plug-in: $('#feedback-badge').feedbackBadge();
+
+
+
+2. Options
+
+css3Safe (false):
+    Activates the safe mode. Sometimes on Webkit browsers (especialy the older versions of Safari) the static position of the badge is affected by other CSS3 styles. This makes the page scroll slow. This option will automatically activate the onscroll event of the window and recalculate the badge position when the client scrolls. I recommend to activate this option on the Webkit browsers only (ex. css3Safe: $.browser.safari ? true : false).
+animate (false):
+    Works only if you set the css3Safe option to true. It will assign a simple animation to the badge while scrolling.
+css:
+    An object with the actual styling of the badge.
+onClick:
+    A default function that will be triggered on mouse click event of the badge.
+
+
+
+3. Implementation
+
+a.) No animation example
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		/**
+		* Set up feedback box
+		*/
+		$('#feedback-badge').feedbackBadge({
+			css3Safe: $.browser.safari ? true : false, //this trick prevents old safari browser versions to scroll properly
+			onClick: function () {
+				// Do your magic in here when you click the badge
+				// Now I just show a simple popup, you could use the jQuery UI dialog
+				var div = $('<div id="popup"></div>');
+				div.load('feedback_form.html');
+				$('body').prepend(div);
+
+				//After ataching the popup to the dom - load the form by ajax
+				$('#feedback-form').live('submit', function () {
+					//Do your magic in here when the form submit button is clicked
+					alert('Magic!');
+					return false;
+				});
+				$('#close-bt').live('click', function () {
+					//Do your magic in here when the form cancel button is clicked
+					div.remove();
+				});
+				return false;
+			}
+		});
+	});
+</script>
+
+
+
+b.) Animation example
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		/**
+		* Set up feedback box
+		*/
+		$('#feedback-badge').feedbackBadge({
+			css3Safe: true, //enable this to get animation on scroll
+			animate: true, //enable the animation
+			onClick: function () {
+				// Do your magic in here when you click the badge
+				// Now I just show a simple popup, you could use the jQuery UI dialog
+				var div = $('<div id="popup"></div>');
+				div.load('feedback_form.html');
+				$('body').prepend(div);
+
+				//After ataching the popup to the dom - load the form by ajax
+				$('#feedback-form').live('submit', function () {
+					//Do your magic in here when the form submit button is clicked
+					alert('Magic!');
+					return false;
+				});
+				$('#close-bt').live('click', function () {
+					//Do your magic in here when the form cancel button is clicked
+					div.remove();
+				});
+				return false;
+			}
+		});
+	});
+</script>
