@@ -9,6 +9,7 @@
 * @requires jQuery v1.3.2 or later
 *
 * Examples and documentation at: http://dumitruglavan.com/jquery-feedback-badge/
+* Official jQuery plugin page: http://plugins.jquery.com/project/feedback-badge
 * Find source on GitHub: https://github.com/doomhz/jQuery-Feedback-Badge
 *
 * Dual licensed under the MIT and GPL licenses:
