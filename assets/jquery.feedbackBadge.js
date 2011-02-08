@@ -4,10 +4,14 @@
 * Display a floating Feedback Badge on page
 *
 * @author Dumitru Glavan
+* @link http://dumitruglavan.com
 * @version 1.0
 * @requires jQuery v1.3.2 or later
 *
-* Examples and documentation at: https://github.com/doomhz/jQuery-Feedback-Badge
+* Examples and documentation at: http://dumitruglavan.com/jquery-feedback-badge/
+* Official jQuery plugin page: http://plugins.jquery.com/project/feedback-badge
+* Find source on GitHub: https://github.com/doomhz/jQuery-Feedback-Badge
+*
 * Dual licensed under the MIT and GPL licenses:
 *   http://www.opensource.org/licenses/mit-license.php
 *   http://www.gnu.org/licenses/gpl.html
