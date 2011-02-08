@@ -21,9 +21,11 @@
 							 'zIndex':'999'
 							},
 					   'animate':false,
-					   'css3Safe':false
+					   'css3Safe':false,
+					   'float':'left'
 					  };
 		$.extend(this.config, options);
+		this.config.css.float = this.config.float;
 
 		this.window = $(window);
 		var self = this;

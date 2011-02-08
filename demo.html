@@ -129,15 +129,59 @@
 &lt;/script&gt;
 		</pre>
 
+		<h3>Display the badge to the right</h3>
+
+		<pre>
+&lt;script type=&quot;text/javascript&quot;&gt;
+	$(document).ready(function () {
+		/**
+		* Set up feedback box to go to the right
+		*/
+		$('#feedback-badge').feedbackBadge({
+			css3Safe: $.browser.safari ? true : false, //this trick prevents old safari browser versions to scroll properly
+			float: 'right' //Add this to float the badge to the right
+		});
+	});
+&lt;/script&gt;
+		</pre>
+
 		<a href="feedback_form.html" title="Give us feedback" id="feedback-badge"><span>Feedback</span></a>
+		<a href="feedback_form.html" title="Give us feedback" id="feedback-badge-right"><span>Feedback</span></a>
 
 		<script type="text/javascript">
 			$(document).ready(function () {
 				/**
-				* Set up feedback box
+				* Set up feedback box on left side
 				*/
 				$('#feedback-badge').feedbackBadge({
 					css3Safe: $.browser.safari ? true : false, //this trick prevents old safari browser versions to scroll properly
+					onClick: function () {
+						// Do your magic in here when you click the badge
+						// Now I just show a simple popup, you could use the jQuery UI dialog
+						var div = $('<div id="popup"></div>');
+						div.load('feedback_form.html');
+						$('body').prepend(div);
+
+						//After ataching the popup to the dom - load the form by ajax
+						$('#feedback-form').live('submit', function () {
+							//Do your magic in here when the form submit button is clicked
+							alert('Magic!');
+							return false;
+						});
+						$('#close-bt').live('click', function () {
+							//Do your magic in here when the form cancel button is clicked
+							div.remove();
+						});
+						return false;
+					}
+				});
+
+				/**
+				* Set up feedback box on right side
+				*/
+				$('#feedback-badge-right').feedbackBadge({
+					css3Safe: $.browser.safari ? true : false, //this trick prevents old safari browser versions to scroll properly
+					float: 'right',
 					onClick: function () {
 						// Do your magic in here when you click the badge
 						// Now I just show a simple popup, you could use the jQuery UI dialog

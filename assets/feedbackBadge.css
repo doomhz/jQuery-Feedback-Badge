@@ -1,5 +1,8 @@
-/* The actual badge style */
+/* The actual badge style to display on the left */
 
+/**
+* Enable this to display the badge on the left side
+*/
 #feedback-badge {
 	display:none;
 	background: url('feedback_badge.png') no-repeat;
@@ -20,6 +23,30 @@
 	display: none;
 }
 
+/**
+* Enable this to display the badge on the roght
+*/
+#feedback-badge-right {
+	display:none;
+	background: url('feedback_badge_right.png') no-repeat;
+	width:62px;
+	height: 124px;
+	margin-right:-16px;
+	right: 0px;
+}
+
+#feedback-badge-right:hover {
+	margin-right:-14px;
+}
+
+#feedback-badge-right:active {
+	margin-right:-18px;
+}
+
+#feedback-badge-right span {
+	display: none;
+}
+
 
 /* The floating div */
 
@@ -29,3 +56,4 @@
 	margin-left:30%;
 	background: #fff;
 }
+
