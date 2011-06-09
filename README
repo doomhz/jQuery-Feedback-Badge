@@ -52,7 +52,7 @@ b.) No animation example
 				// Do your magic in here when you click the badge
 				// Now I just show a simple popup, you could use the jQuery UI dialog
 				var div = $('<div id="popup"></div>');
-				div.load('feedback_form.html');
+				div.load('feedback_form.html', function () {$(window).scroll();});
 				$('body').prepend(div);
 
 				//After ataching the popup to the dom - load the form by ajax
@@ -87,7 +87,7 @@ c.) Animation example
 				// Do your magic in here when you click the badge
 				// Now I just show a simple popup, you could use the jQuery UI dialog
 				var div = $('<div id="popup"></div>');
-				div.load('feedback_form.html');
+				div.load('feedback_form.html', function () {$(window).scroll();});
 				$('body').prepend(div);
 
 				//After ataching the popup to the dom - load the form by ajax
@@ -105,3 +105,15 @@ c.) Animation example
 		});
 	});
 </script>
+
+About the form popup
+
+The form container was implemented for the sake of the example but you can use it in your project anyway. If you want a more advanced popup you can use Doom Windows plugin.
+
+<script type="text/javascript">
+// This centers current form popup
+$(window).scroll(function () {
+	var topMargin = ($(window).height() - $('#popup').height())/2 + $(window).scrollTop();
+	$('#popup').css('margin-top', topMargin);
+});	
+</script">
